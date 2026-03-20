@@ -1,41 +1,127 @@
-# Python
+# ==================== VIRTUAL ENVIRONMENT ====================
+venv/
+env/
+ENV/
+.venv
+.env
+.env.local
+.env.*.local
+
+# ==================== PYTHON CACHE & BUILD ====================
 __pycache__/
 *.py[cod]
 *$py.class
 *.so
 .Python
-env/
-venv/
-*.egg-info/
-dist/
 build/
-.pytest_cache/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
 *.egg
+MANIFEST
 
-# IDE
+# ==================== IDE & EDITORS ====================
 .vscode/
 .idea/
 *.swp
 *.swo
 *~
-.DS_Store
+.project
+.pydevproject
+.settings/
+*.sublime-project
+*.sublime-workspace
 
-# Project specific
+# ==================== OS FILES ====================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# ==================== TESTING & COVERAGE ====================
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.hypothesis/
+.phpunit.result.cache
+
+# ==================== PROJECT SPECIFIC ====================
+# Selenium
 selenium/chromedriver
 selenium/chromedriver.exe
-selenium/extraction.log
+selenium/geckodriver
+selenium/phantomjs
+selenium/*.log
+selenium/screenshots/
+
+# Scrapy
 scrapy_project/httpcache/
-scrapy_project/logs/
-scrapy_project/job_cache/
+scrapy_project/job_cache*/
+scrapy_project/logs/*.log
+scrapy_project/*.log
+.scrapy/
 
-# Data files (keep dirs, ignore generated data)
-data/raw/*.csv
-data/final/*.csv
-!.gitkeep
+# Crawler state
+.spider_state
+*.seen
 
-# Analysis outputs
+# ==================== DATA FILES ====================
+# Keep directories, ignore generated data
+data/raw/**/*.csv
+data/final/**/*.csv
+data/**/temp/
+!data/raw/.gitkeep
+!data/final/.gitkeep
+
+# ==================== LOGS & TEMPORARY ====================
+*.log
+*.tmp
+*.temp
+*.bak
+*.backup
+~*
+.log
+
+# ==================== CREDENTIALS & SECRETS ====================
+credentials.json
+config/secrets.yml
+config/secrets.json
+.credentials
+
+# ==================== DATABASE ====================
+*.db
+*.sqlite
+*.sqlite3
+*.dbm
+
+# ==================== ANALYSIS OUTPUT ====================
 analysis/*.txt
 analysis/*.log
+analysis/workforce_analysis.txt
 
-# Logs
-*.log
+# ==================== PACKAGE MANAGERS ====================
+poetry.lock
+Pipfile.lock
+*.lock
+
+# ==================== EDITOR TEMP ====================
+.vscode/settings.json
+.vscode/launch.json
+.vscode/extensions.json

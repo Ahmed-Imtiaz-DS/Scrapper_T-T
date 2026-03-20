@@ -49,8 +49,7 @@ class JobMarketSpider(scrapy.Spider):
                         'original_title': job.get('title', ''),
                         'company_source': job.get('company', ''),
                         'source': job.get('source', '')
-                    },
-                    dont_obey_robotstxt=True
+                    }
                 )
     
     def parse(self, response):
@@ -91,13 +90,16 @@ class JobMarketSpider(scrapy.Spider):
             # Extract posted date
             item['posted_date'] = self.extract_posted_date(response)
             
-            if item.get('job_description'):
+            # Yield item even with partial data
+            if item.get('job_title') and item.get('company') and item.get('job_url'):
                 yield item
+                logger.debug(f"Extracted job: {item.get('job_title')} from {response.url}")
             else:
-                logger.warning(f"No description extracted from {response.url}")
+                logger.warning(f"Incomplete data from {response.url}: title={item.get('job_title')}, company={item.get('company')}")
         
         except Exception as e:
             logger.error(f"Error parsing {response.url}: {str(e)}")
+
     
     def extract_company(self, response):
         """Extract company name from page."""

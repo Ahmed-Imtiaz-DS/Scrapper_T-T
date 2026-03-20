@@ -13,7 +13,6 @@ ROBOTSTXT_OBEY = False
 # Configure maximum concurrent requests per domain
 CONCURRENT_REQUESTS = 16
 CONCURRENT_REQUESTS_PER_DOMAIN = 8
-CONCURRENT_REQUESTS_PER_IP = 8
 
 # Disable cookies
 COOKIES_ENABLED = False

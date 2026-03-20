@@ -78,7 +78,7 @@ class JobBoardScraper:
         options.add_argument('user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36')
         
         try:
-            self.driver = webdriver.Chrome(chromedriver_path, options=options)
+            self.driver = webdriver.Chrome(options=options)
             logger.info("WebDriver initialized successfully")
         except Exception as e:
             logger.error(f"Failed to initialize WebDriver: {e}")

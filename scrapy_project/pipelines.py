@@ -7,6 +7,7 @@ import re
 import logging
 from pathlib import Path
 from datetime import datetime
+from scrapy.exceptions import DropItem
 from .items import JobItem
 
 logger = logging.getLogger(__name__)
@@ -25,13 +26,18 @@ SKILL_KEYWORDS = {
 class DataValidationPipeline:
     """Validates job data and ensures required fields are present."""
     
-    REQUIRED_FIELDS = ['job_title', 'company', 'job_url', 'job_description']
+    # Minimum required fields
+    REQUIRED_FIELDS = ['job_title', 'company', 'job_url']
     
     def process_item(self, item, spider):
-        """Validate required fields."""
+        """Validate required fields (relaxed)."""
         for field in self.REQUIRED_FIELDS:
             if not item.get(field):
                 raise DropItem(f"Missing required field: {field}")
+        
+        # If no description, use a placeholder
+        if not item.get('job_description'):
+            item['job_description'] = 'Description not available'
         
         # Clean whitespace
         for field in ['job_title', 'company', 'location', 'job_description']:
@@ -131,8 +137,3 @@ class CSVExportPipeline:
         self.item_count += 1
         
         return item
-
-
-class DropItem(Exception):
-    """Exception to drop items."""
-    pass
