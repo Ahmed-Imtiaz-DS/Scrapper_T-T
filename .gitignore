@@ -83,12 +83,11 @@ scrapy_project/*.log
 *.seen
 
 # ==================== DATA FILES ====================
-# Keep directories, ignore generated data
-data/raw/**/*.csv
-data/final/**/*.csv
+# Keep directories and CSV files for version control
 data/**/temp/
-!data/raw/.gitkeep
-!data/final/.gitkeep
+!data/
+!data/raw/
+!data/final/
 
 # ==================== LOGS & TEMPORARY ====================
 *.log
