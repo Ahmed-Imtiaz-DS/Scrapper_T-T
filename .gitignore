@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+*.egg
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Project specific
+selenium/chromedriver
+selenium/chromedriver.exe
+selenium/extraction.log
+scrapy_project/httpcache/
+scrapy_project/logs/
+scrapy_project/job_cache/
+
+# Data files (keep dirs, ignore generated data)
+data/raw/*.csv
+data/final/*.csv
+!.gitkeep
+
+# Analysis outputs
+analysis/*.txt
+analysis/*.log
+
+# Logs
+*.log
